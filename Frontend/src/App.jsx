@@ -1,12 +1,14 @@
-import Form from "./components/form";
+import Forms from "./components/forms";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import UpdateUser from "./components/update";
+import UpdateUser from "./components/updates";
+import FullInfo from "./components/fullInfo";
 function App() {
   return (
     <div className="">
       <Router>
         <Routes>
-          <Route path="/" element={<Form />} />
+          <Route path="/" element={<Forms />} />
+          <Route path="/all" element={<FullInfo />} />
           <Route element={<UpdateUser />} path="/update/:id" />
         </Routes>
       </Router>

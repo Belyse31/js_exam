@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Form() {
+function Forms() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     title: "",
     firstName: "",
@@ -36,6 +37,7 @@ function Form() {
         }
 
         console.log("Saved successfully");
+        navigate("/all")
       })
       .catch((err) => {
         console.log("Error in saving the record.");
@@ -218,7 +220,8 @@ function Form() {
                 </div>
               </div>
               <div>
-                <button className="px-4 py-2 bg-blue-500 rounded text-white mx-auto my-12">
+                <button type="submit"  
+                className="px-4 py-2 bg-blue-500 rounded text-white mx-auto my-12">
                   Save Data
                 </button>
               </div>
@@ -344,7 +347,7 @@ function Form() {
           </div>
         </div>
       </div>
-      <button className="bg-blue-500 hover:bg-green-800 text-white py-2 px-4 rounded-xl mx-2">
+      {/* <button className="bg-blue-500 hover:bg-green-800 text-white py-2 px-4 rounded-xl mx-2">
         General Information
       </button>
       <table className="border mx-auto">
@@ -391,55 +394,10 @@ function Form() {
             );
           })}
         </tbody>
-      </table>
-      <table className="border mx-auto">
-        <thead className="border">
-          <tr className="bg-violet-200">
-            <th className="border px-4 py-4">Street Number</th>
-            <th className="border px-4 py-4">Additional Information</th>
-            <th className="border px-4 py-4">zip Code</th>
-            <th className="border px-4 py-4">Place</th>
-            <th className=" px-4 py-4">Country</th>
-            <th className="border px-4 py-4">Code</th>
-            <th className="border px-4 py-4">Phone Number</th>            
-            <th className="border px-4 py-4">Email</th>
-            <th className="border px-4 py-4">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => {
-            return (
-              <tr key={user._id} className="bg-gray-90">
-                <td className="border px-4 py-4">{user.title}</td>
-                <td className="border px-4 py-4">{user.firstName}</td>
-                <td className="border px-4 py-4">{user.lastName}</td>
-                <td className="border px-4 py-4">{user.position}</td>
-                <td className="border px-4 py-4">{user.company}</td>
-                <td className="border px-4 py-4">{user.businessArena}</td>
-                <td className="border px-4 py-4">{user.employees}</td>
-                <td className="border px-4 py-4">
-                  <Link
-                    to={`/update/${user._id}`}
-                    className="bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-xl mx-2"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    className="bg-red-500 hover:bg-red-800 text-white py-2 px-4 rounded-xl mx-2"
-                    onClick={() => {
-                      handleDelete(user._id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      </table> */}
+   
     </div>
   );
 }
 
-export default Form;
+export default Forms;
